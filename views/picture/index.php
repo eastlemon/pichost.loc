@@ -25,6 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             [
+                'attribute' => 'thumbnail',
+                'value' => function ($model) {
+                    return Html::img(Yii::getAlias('@web/uploads/') . $model->name . '.' . $model->ext, ['width' => '60px']);
+                },
+                'format' => 'raw',
+                'label' => Yii::t('app', 'Thumbnail'),
+            ],
+            [
                 'attribute' => 'name',
                 'value' => function ($model) {
                     return Html::a($model->name . '.' . $model->ext, ['view', 'id' => $model->id]);                    

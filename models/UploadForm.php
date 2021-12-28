@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\helpers\Inflector;
+use yii\imagine\Image;
 use app\models\Picture;
 
 class UploadForm extends Model
@@ -21,7 +22,7 @@ class UploadForm extends Model
     public function upload()
     {
         if ($this->validate()) { 
-            $target = 'uploads';
+            $target = Yii::getAlias('@webroot') . '/uploads';
             foreach ($this->files as $file) {
                 $picture = new Picture();
                 $picture->name = $this->checkName($target, $file);
@@ -29,7 +30,11 @@ class UploadForm extends Model
                 $picture->ext = $file->extension;
                 $picture->save();
 
-                $file->saveAs($target . '/' . $picture->name . '.' . $picture->ext);
+                $originFile = $target . '/' . $picture->name . '.' . $picture->ext;
+                $thumbnFile = $target . '/thumb-' . $picture->name . '.' . $picture->ext;
+
+                $file->saveAs($originFile);
+                Image::thumbnail($originFile, 120, 120)->save($thumbnFile, ['quality' => 50]);
             }
             return true;
         } else {

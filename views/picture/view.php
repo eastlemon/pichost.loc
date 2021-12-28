@@ -37,4 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <img src="/uploads/<?= $model->name ?>.<?= $model->ext ?>" class="rounded mx-auto d-block" alt="<?= $model->name ?>">
+
 </div>

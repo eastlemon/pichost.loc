@@ -17,8 +17,7 @@ class PictureSearch extends Picture
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'target', 'ext', 'created_at'], 'safe'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -61,10 +60,7 @@ class PictureSearch extends Picture
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'target', $this->target])
-            ->andFilterWhere(['like', 'ext', $this->ext])
-            ->andFilterWhere(['like', 'created_at', $this->created_at]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

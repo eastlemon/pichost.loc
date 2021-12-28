@@ -1,5 +1,6 @@
 <?php
 return [
+    'Thumbnail' => 'Эскиз',
     'Files has been uploaded' => 'Файлы были загружены',
     'Created At' => 'Создан',
     'Name' => 'Наименование',
