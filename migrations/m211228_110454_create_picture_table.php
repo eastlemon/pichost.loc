@@ -14,10 +14,9 @@ class m211228_110454_create_picture_table extends Migration
     {
         $this->createTable('{{%picture}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull()->comment('Name'),
-            'uniq_name' => $this->string()->notNull()->comment('Unique Name'),
-            'target' => $this->string()->notNull()->comment('Target'),
-            'ext' => $this->string()->notNull()->comment('Extension'),
+            'name' => $this->string()->comment('Name'),
+            'target' => $this->string()->comment('Target'),
+            'ext' => $this->string()->comment('Extension'),
             'created_at' => $this->string()->comment('Creation Time'),
         ]);
     }

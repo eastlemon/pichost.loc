@@ -18,7 +18,6 @@
         $this->createTable('{{%picture}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()->comment('Name'),
-            'uniq_name' => $this->string()->notNull()->comment('Unique Name'),
             'target' => $this->string()->notNull()->comment('Target'),
             'ext' => $this->string()->notNull()->comment('Extension'),
             'created_at' => $this->string()->comment('Creation Time'),
@@ -42,4 +41,16 @@
 
     Enable I18N — yes
 
+<b>Загрузка картинок</b>
 
+    Создадим модель формы UploadForm. Для свойства files задаем правило валидации maxFiles => 5
+    и поддерживаемые форматы файлов bmp, png, jpg
+
+    Метод upload формы вызывается из экшена контроллера, принимаем массив файлов из формы,
+    затем регистрируем каждый файл в таблице pictures
+
+    Метод checkName транслитирирует наименование файла и проверяет наличие файла на сервере, если находит, то
+    добаляет инремент к названию, сохраняем в БД новую запись и, используя метод saveAs сохраняем файл физически
+    с новым именем.
+
+<b></b>

@@ -18,7 +18,7 @@ class PictureSearch extends Picture
     {
         return [
             [['id'], 'integer'],
-            [['name', 'uniq_name', 'target', 'ext', 'created_at'], 'safe'],
+            [['name', 'target', 'ext', 'created_at'], 'safe'],
         ];
     }
 
@@ -62,7 +62,6 @@ class PictureSearch extends Picture
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'uniq_name', $this->uniq_name])
             ->andFilterWhere(['like', 'target', $this->target])
             ->andFilterWhere(['like', 'ext', $this->ext])
             ->andFilterWhere(['like', 'created_at', $this->created_at]);

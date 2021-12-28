@@ -1,5 +1,11 @@
 <?php
 return [
+    'Files has been uploaded' => 'Файлы были загружены',
+    'Created At' => 'Создан',
+    'Name' => 'Наименование',
+    'Upload' => 'Загрузить',
+    'Create' => 'Создать',
+    'Save' => 'Сохранить',
     'Logout' => 'Выход',
     'Login' => 'Вход',
     'Home' => 'Главная',
