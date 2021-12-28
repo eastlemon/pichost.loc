@@ -71,7 +71,10 @@ class PictureController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        unlink(Yii::getAlias('./uploads/') . $model->name . '.' . $model->ext);
+        unlink(Yii::getAlias('./uploads/thumb-') . $model->name . '.' . $model->ext);
+        $model->delete();
 
         return $this->redirect(['index']);
     }

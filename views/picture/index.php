@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'thumbnail',
                 'value' => function ($model) {
-                    return Html::img(Yii::getAlias('@web/uploads/') . $model->name . '.' . $model->ext, ['width' => '60px']);
+                    return Html::img(Yii::getAlias('@web/uploads/thumb-') . $model->name . '.' . $model->ext, ['width' => '60px']);
                 },
                 'format' => 'raw',
                 'label' => Yii::t('app', 'Thumbnail'),

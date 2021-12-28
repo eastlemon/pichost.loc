@@ -62,6 +62,18 @@ $config = [
                 ],
             ],
         ],
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'timeZone' => 'Europe/Moscow',
+            'dateFormat' => 'php:d.m.Y',
+            'datetimeFormat' => 'php:d.m.Y H:i:s',
+            'timeFormat' => 'php:H:i:s',
+            'locale' => 'ru-RU', // your language locale
+            'defaultTimeZone' => 'Europe/Moscow', // time zone
+            'decimalSeparator' => '.',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'RUR',
+        ],
     ],
     'params' => $params,
 ];
